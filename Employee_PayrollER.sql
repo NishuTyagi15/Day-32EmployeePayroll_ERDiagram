@@ -28,6 +28,7 @@ INSERT INTO employee (company_id, emp_name, phone_no, address, gender) VALUES
 select * from employee;
 
 CREATE TABLE payroll (
+    pay_id				INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     company_id			INTEGER,
     employee_id			INTEGER,
 	salary				Double NOT NULL,
@@ -67,3 +68,6 @@ INSERT INTO department (employee_id, department) VALUES
 	(5, 'Production');
 select * from department;
 select employee.emp_name, company.company_name from employee join company on employee.company_id = company.company_id;
+select SUM(salary) from employee join payroll on payroll.employee_id = employee.employee_id where gender = 'Female' group by gender;
+select AVG(salary) from employee join payroll on payroll.employee_id = employee.employee_id where gender = 'Female' group by gender;
+select gender, COUNT(salary) from employee join payroll on payroll.employee_id = employee.employee_id group by gender;
