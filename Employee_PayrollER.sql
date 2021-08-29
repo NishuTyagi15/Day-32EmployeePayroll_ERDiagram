@@ -28,7 +28,6 @@ INSERT INTO employee (company_id, emp_name, phone_no, address, gender) VALUES
 select * from employee;
 
 CREATE TABLE payroll (
-    pay_id				INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     company_id			INTEGER,
     employee_id			INTEGER,
 	salary				Double NOT NULL,
